@@ -101,7 +101,7 @@ footer {
 .hero {
   width: 100%;
   min-height: 70vh; /* o 100vh si querés que ocupe toda la pantalla */
-  background: url('/img/enache-georgiana-XsvZ5qKxano-unsplash.jpg') center/cover no-repeat;
+  background: url('../img/enache-georgiana-XsvZ5qKxano-unsplash.jpg') center/cover no-repeat;
   color: white;
   text-align: center;
   padding: 4rem 2rem;
