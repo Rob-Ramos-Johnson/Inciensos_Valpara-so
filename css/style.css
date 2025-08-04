@@ -1,0 +1,312 @@
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffaf5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+.btn {
+  font-size: 1.2rem;
+}
+
+header {
+  background-color: #8e6e53;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+/* Estilo personalizado para el nav en Bootstrap */
+.navbar-nav {
+  gap: 1rem; /* Espaciado entre los ítems del menú */
+  padding: 1.5rem 1rem; /* Aumenta el padding vertical */
+  font-size: 1.8rem;    /* Tamaño de fuente más grande */
+}
+
+.navbar-brand {
+  font-size: 2.2rem;    /* Marca más grande */
+  font-weight: 700
+}
+
+.navbar-nav .nav-link {
+   font-size: 1.6rem;
+   padding: 0.75rem 1rem;
+  color: white !important; /* Asegura que el texto sea blanco */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffcc70 !important; /* Color al pasar el mouse */
+}
+
+/* Animación personalizada del botón hamburguesa */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 20px;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Transformación cuando el menú está abierto */
+.custom-toggler[aria-expanded="true"] .hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.custom-toggler[aria-expanded="true"] .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+.custom-toggler[aria-expanded="true"] .hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+ /* Index */
+
+.hero {
+  width: 100%;
+  min-height: 70vh; /* o 100vh si querés que ocupe toda la pantalla */
+  background: url('/img/enache-georgiana-XsvZ5qKxano-unsplash.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.hero .btn {
+  background-color: #f3e9dc;
+  color: #333;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.destacados {
+  padding: 2rem;
+  text-align: center;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.precio-original {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 1.4rem;
+}
+
+.precio-descuento {
+  color: #8e6e53;
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin: 0.3rem 0;
+}
+
+.estado {
+  font-weight: bold;
+  font-size: 1.6rem;
+  margin: 0.5rem 0;
+  display: inline-block;
+}
+
+.agotado {
+  color: red!important;
+}
+
+.btn[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #666;
+}
+
+
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #8e6e53;
+  color: white;
+}
+
+
+ /* Tienda */
+
+ .tienda {
+  padding: 2rem;
+  text-align: center;
+}
+
+.tienda h2 {
+  margin-bottom: 2rem;
+}
+
+.productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.producto {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.producto:hover {
+  transform: scale(1.02);
+}
+
+.producto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.producto h4 {
+  margin: 1rem 0 0.5rem;
+}
+
+.producto p {
+  margin: 0.5rem 0;
+  color: #8e6e53;
+  font-weight: bold;
+}
+
+.producto button {
+  background-color: #8e6e53;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.producto button:hover {
+  background-color: #6e533e;
+}
+
+/* Nosotros */
+
+.nosotros {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.foto-fundadores {
+  margin-top: 2rem;
+}
+
+.foto-fundadores img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.caption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+
+/* Contacto */
+
+.contacto {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 4rem 1rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+.contacto form {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0 auto;
+  width: 100%;
+  padding: 4rem;
+  border-radius: 10px;
+}
+
+.contacto input,
+.contacto textarea {
+  padding: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1.6rem;
+}
+
+.contacto textarea {
+  resize: vertical;
+  min-height: 350px;
+}
+
+.contacto button {
+  background-color: #8e6e53;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.contacto button:hover {
+  background-color: #6e533e;
+}
