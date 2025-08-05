@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Tienda - Inciesos Valparaíso</title>
+  <title>Tienda - Inciensos Valparaíso</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
  <!-- Bootstrap 5 navbar con hamburguesa -->
@@ -40,44 +39,93 @@
   </div>
 </nav>
 
-
-  <main class="tienda">
-    <h2>Nuestros inciensos</h2>
-    <div class="productos">
-      <div class="producto">
-        <img src="img/incienso1.jpg" alt="Incienso de Coco">
-        <h4>Incienso de Coco</h4>
-        <p>$3.99</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="img/incienso2.jpg" alt="Incienso de chocolate">
-        <h4>Incienso de chocolate</h4>
-        <p>$4.50</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="img/incienso3.jpg" alt="Incienso de chocolate">
-        <h4>Incienso de chocolate</h4>
-        <p>$4.50</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <div class="producto">
-        <img src="img/incienso3.jpg" alt="Incienso de chocolate">
-        <h4>Incienso de chocolate</h4>
-        <p>$4.50</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <!-- Agrega más productos aquí -->
+<main class="tienda container my-5">
+  <h2 class="mb-4 text-center">Nuestros inciensos</h2>
+  <div class="row productos g-4">
+    <div class="col-md-3 producto card p-3 text-center">
+      <img src="img/incienso1.jpg" alt="Incienso de Coco" class="img-fluid mb-3">
+      <h4>Incienso de Coco</h4>
+      <p class="precio fs-5">$3.99</p>
+      <button class="btn btn-primary agregar-carrito" data-nombre="Incienso de Coco" data-precio="3.99">Añadir al carrito</button>
     </div>
-  </main>
+    <div class="col-md-3 producto card p-3 text-center">
+      <img src="img/incienso2.jpg" alt="Incienso de chocolate" class="img-fluid mb-3">
+      <h4>Incienso de chocolate</h4>
+      <p class="precio fs-5">$4.50</p>
+      <button class="btn btn-primary agregar-carrito" data-nombre="Incienso de chocolate" data-precio="4.50">Añadir al carrito</button>
+    </div>
+    <div class="col-md-3 producto card p-3 text-center">
+      <img src="img/incienso3.jpg" alt="Incienso de chocolate" class="img-fluid mb-3">
+      <h4>Incienso de chocolate</h4>
+      <p class="precio fs-5">$4.50</p>
+      <button class="btn btn-primary agregar-carrito" data-nombre="Incienso de chocolate" data-precio="4.50">Añadir al carrito</button>
+    </div>
+    <div class="col-md-3 producto card p-3 text-center">
+      <img src="img/incienso3.jpg" alt="Incienso de chocolate" class="img-fluid mb-3">
+      <h4>Incienso de chocolate</h4>
+      <p class="precio fs-5">$4.50</p>
+      <button class="btn btn-primary agregar-carrito" data-nombre="Incienso de chocolate" data-precio="4.50">Añadir al carrito</button>
+    </div>
+  </div>
+</main>
 
-  <footer>
-    <p>&copy; Inciensos Valparaíso. Todos los derechos reservados.</p>
-  </footer>
+<footer class="bg-dark text-white text-center py-3 mt-5">
+  <p>&copy; Inciensos Valparaíso. Todos los derechos reservados.</p>
+</footer>
 
-  <script src="js/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<div id="carrito-container" class="carrito shadow p-3 rounded">
+  <h3>Carrito de Compras</h3>
+  <ul id="carrito-lista" class="list-unstyled"></ul>
+  <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+  <button id="vaciar-carrito" class="btn btn-danger btn-sm">Vaciar carrito</button>
+</div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const carrito = [];
+  const lista = document.getElementById('carrito-lista');
+  const total = document.getElementById('total');
+  const botones = document.querySelectorAll('.agregar-carrito');
+  const vaciarBtn = document.getElementById('vaciar-carrito');
+
+  botones.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const nombre = btn.dataset.nombre;
+      const precio = parseFloat(btn.dataset.precio);
+      carrito.push({ nombre, precio });
+      renderCarrito();
+    });
+  });
+
+  vaciarBtn.addEventListener('click', () => {
+    carrito.length = 0;
+    renderCarrito();
+  });
+
+  function renderCarrito() {
+    lista.innerHTML = '';
+    let totalCompra = 0;
+    carrito.forEach((item, index) => {
+      const li = document.createElement('li');
+      li.textContent = `${item.nombre} - $${item.precio.toFixed(2)}`;
+      const btnEliminar = document.createElement('button');
+      btnEliminar.textContent = 'X';
+      btnEliminar.className = 'btn btn-sm btn-outline-danger ms-2';
+      btnEliminar.addEventListener('click', () => {
+        carrito.splice(index, 1);
+        renderCarrito();
+      });
+      li.appendChild(btnEliminar);
+      lista.appendChild(li);
+      totalCompra += item.precio;
+    });
+    total.textContent = totalCompra.toFixed(2);
+  }
+</script>
+<!-- Botón flotante de WhatsApp -->
+<a href="https://wa.me/5491123456789" class="whatsapp-float" target="_blank" aria-label="Chat en WhatsApp">
+  <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
+</a>
 </body>
 </html>

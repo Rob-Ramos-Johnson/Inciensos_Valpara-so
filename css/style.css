@@ -1,14 +1,15 @@
+/* Reset y base */
 html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*, *::before, *::after {
   box-sizing: inherit;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: Arial, sans-serif; /* preferí Arial para compatibilidad */
   background-color: #fffaf5;
   color: #333;
   margin: 0;
@@ -27,6 +28,7 @@ p {
   font-size: 1.2rem;
 }
 
+/* Header */
 header {
   background-color: #8e6e53;
   color: white;
@@ -34,48 +36,47 @@ header {
   text-align: center;
 }
 
-/* Estilo personalizado para el nav en Bootstrap */
+/* Navbar Bootstrap personalizado */
 .navbar-nav {
-  gap: 1rem; /* Espaciado entre los ítems del menú */
-  padding: 1.5rem 1rem; /* Aumenta el padding vertical */
-  font-size: 1.8rem;    /* Tamaño de fuente más grande */
+  gap: 1rem;
+  padding: 1.5rem 1rem;
+  font-size: 1.8rem;
 }
 
 .navbar-brand {
-  font-size: 2.2rem;    /* Marca más grande */
-  font-weight: 700
+  font-size: 2.2rem;
+  font-weight: 700;
 }
 
 .navbar-nav .nav-link {
-   font-size: 1.6rem;
-   padding: 0.75rem 1rem;
-  color: white !important; /* Asegura que el texto sea blanco */
+  font-size: 1.6rem;
+  padding: 0.75rem 1rem;
+  color: white !important;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #ffcc70 !important; /* Color al pasar el mouse */
+  color: #ffcc70 !important;
 }
 
-/* Animación personalizada del botón hamburguesa */
+/* Botón hamburguesa animado */
 .hamburger {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  width: 25px;
+  justify-content: space-around;
   height: 20px;
+  width: 25px;
 }
 
 .hamburger span {
   display: block;
   height: 3px;
-  background: white;
+  background-color: white;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-/* Transformación cuando el menú está abierto */
 .custom-toggler[aria-expanded="true"] .hamburger span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -86,6 +87,7 @@ header {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* Footer */
 footer {
   position: fixed;
   bottom: 0;
@@ -96,11 +98,11 @@ footer {
   padding: 1rem 0;
 }
 
- /* Index */
-
+/* Sección Hero */
 .hero {
   width: 100%;
-  min-height: 70vh; /* o 100vh si querés que ocupe toda la pantalla */
+  min-height: 70vh;
+  /* Ajusta la ruta según dónde esté tu CSS y la imagen */
   background: url('../img/enache-georgiana-XsvZ5qKxano-unsplash.jpg') center/cover no-repeat;
   color: white;
   text-align: center;
@@ -120,11 +122,13 @@ footer {
   border-radius: 5px;
 }
 
+/* Destacados */
 .destacados {
   padding: 2rem;
   text-align: center;
 }
 
+/* Productos generales */
 .productos {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -153,7 +157,7 @@ footer {
 }
 
 .agotado {
-  color: red!important;
+  color: red !important;
 }
 
 .btn[disabled] {
@@ -163,31 +167,25 @@ footer {
   color: #666;
 }
 
-
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #8e6e53;
-  color: white;
-}
-
-
- /* Tienda */
-
- .tienda {
+/* Tienda */
+.tienda {
   padding: 2rem;
   text-align: center;
+  margin-bottom: 6rem;
 }
 
 .tienda h2 {
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .productos {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .producto {
@@ -197,6 +195,7 @@ footer {
   padding: 1rem;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
   transition: transform 0.2s ease;
+  width: 270px;
 }
 
 .producto:hover {
@@ -205,7 +204,8 @@ footer {
 
 .producto img {
   max-width: 100%;
-  height: auto;
+  max-height: 300px; /* aumenta el tamaño máximo */
+  object-fit: cover; /* para que la imagen llene el espacio, recortando un poco si es necesario */
   border-radius: 5px;
 }
 
@@ -232,8 +232,54 @@ footer {
   background-color: #6e533e;
 }
 
-/* Nosotros */
+/* Sección general */
+section {
+  margin-bottom: 6rem;
+}
 
+/* Carrito */
+#carrito-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  z-index: 1000;
+}
+
+#carrito-container ul {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+#carrito-lista li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+#carrito-lista li button {
+  background-color: #dc3545;
+  border: none;
+  color: white;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 2px 6px;
+  font-weight: bold;
+}
+
+#carrito-lista li button:hover {
+  background-color: #a71d2a;
+}
+
+/* Nosotros */
 .nosotros {
   max-width: 800px;
   margin: 2rem auto;
@@ -261,9 +307,7 @@ footer {
   margin-top: 0.5rem;
 }
 
-
 /* Contacto */
-
 .contacto {
   max-width: 600px;
   margin: 2rem auto;
@@ -309,4 +353,42 @@ footer {
 
 .contacto button:hover {
   background-color: #6e533e;
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 60px; /* más alto para no tapar el footer */
+  right: 20px;
+  z-index: 1000;
+  background-color: transparent;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+}
+
+/* Ajuste para pantallas pequeñas */
+@media (max-width: 576px) {
+  .whatsapp-float {
+    bottom: 90px; /* más alto aún en móviles */
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Ajuste específico para pantallas como Galaxy S20 */
+@media (max-width: 430px) {
+  .whatsapp-float {
+    right: 0.1rem; /* o el valor que necesites */
+  }
 }
