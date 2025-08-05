@@ -16,12 +16,39 @@ body {
   padding: 0;
 }
 
+/* Asegura que html y body ocupen el 100% del alto */
+html, body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* El contenido ocupa el espacio restante */
+main {
+  flex: 1;
+}
+
+/* Footer fijo al final del contenido (no flotante) */
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  width: 100%;
+}
+
+
+h2 {
+  font-size: 5rem;
+}
+
 h3 {
-  font-size: 1.5rem;
+  font-size: 4rem;
+  margin-bottom: 5rem;
 }
 
 p {
-  font-size: 1.8rem;
+  font-size: 2.5rem;
 }
 
 .btn {
@@ -69,6 +96,12 @@ header {
   color: #ffcc70 !important;
 }
 
+.navbar {
+  position: relative;
+  z-index: 1100; /* más alto que 1050 del carrito */
+}
+
+
 /* Botón hamburguesa animado */
 .hamburger {
   display: flex;
@@ -96,16 +129,15 @@ header {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Footer */
 footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
   background-color: #222;
   color: white;
   text-align: center;
   padding: 1rem 0;
+  width: 100%;
+  position: static; /* o simplemente eliminá esta línea */
 }
+
 
 /* Sección Hero */
 .hero {
@@ -246,61 +278,34 @@ section {
   margin-bottom: 6rem;
 }
 
-/* Carrito */
-.carrito{
-margin-bottom: 6rem;
-}
-
-#carrito-container {
+.carrito {
   position: fixed;
   top: 80px;
   right: 20px;
-  width: 300px;
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  border-radius: 8px;
-  z-index: 1000;
+  width: 280px;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 1050;
+  margin-top: 2rem;
 }
 
-#carrito-container ul {
-  list-style: none;
-  padding: 0;
-  max-height: 200px;
+.carrito ul {
+  max-height: 220px;
   overflow-y: auto;
 }
 
-#carrito-lista li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 6px;
-}
-
-#carrito-lista li button {
-  background-color: #dc3545;
-  border: none;
-  color: white;
-  border-radius: 3px;
+.carrito button {
   cursor: pointer;
-  padding: 2px 6px;
+}
+
+.list-group-item button {
+  float: right;
+  border: none;
+  background-color: transparent;
+  color: red;
   font-weight: bold;
+  font-size: 1.1rem;
 }
-
-#carrito-lista li button:hover {
-  background-color: #a71d2a;
-}
-
-@media (max-width: 576px) {
-  #carrito-container {
-    top: 110px;   /* Baja el carrito para que no tape el nav */
-    right: 10px;  /* Un poco más a la derecha para ajustarse */
-    width: 90%;   /* Más adaptable en pantallas pequeñas */
-    max-width: 300px;
-  }
-}
-
 
 /* Nosotros */
 .nosotros {
