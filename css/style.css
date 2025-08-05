@@ -37,6 +37,15 @@ header {
 }
 
 /* Navbar Bootstrap personalizado */
+
+.navbar {
+  position: relative;
+  z-index: 1040; /* más que el menú o elementos flotantes */
+}
+.navbar-collapse {
+  z-index: 1030;
+}
+
 .navbar-nav {
   gap: 1rem;
   padding: 1.5rem 1rem;
@@ -238,6 +247,10 @@ section {
 }
 
 /* Carrito */
+.carrito{
+margin-bottom: 6rem;
+}
+
 #carrito-container {
   position: fixed;
   top: 80px;
@@ -278,6 +291,16 @@ section {
 #carrito-lista li button:hover {
   background-color: #a71d2a;
 }
+
+@media (max-width: 576px) {
+  #carrito-container {
+    top: 110px;   /* Baja el carrito para que no tape el nav */
+    right: 10px;  /* Un poco más a la derecha para ajustarse */
+    width: 90%;   /* Más adaptable en pantallas pequeñas */
+    max-width: 300px;
+  }
+}
+
 
 /* Nosotros */
 .nosotros {
